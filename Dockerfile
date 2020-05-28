@@ -47,7 +47,6 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirement files
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
-COPY insurance-requirements.txt buildreqs/insurance-requirements.txt
 
 # Python 3 setup
 # KE TODO do we need this python3 setup or can we just install it

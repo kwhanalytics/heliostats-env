@@ -47,6 +47,7 @@ RUN apt-get update && apt-get install -y \
 
 # Copy requirement files
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
+COPY heliostats-requirements.txt buildreqs/heliostats-requirements.txt
 
 # Python 3 setup
 # KE TODO do we need this python3 setup or can we just install it
@@ -85,7 +86,9 @@ RUN python --version
 # This layer costs 1.28GB - not sure how to fix this issue.
 # explicitly install numpy first?
 RUN pip install numpy==1.11.0
+# note that some libraries are on older versions than data-env imagee
 RUN pip --no-cache-dir install -r buildreqs/marvin-requirements.txt
+RUN pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
 
 # Do we need to / want to create an ENTRYPOINT HERE?
 

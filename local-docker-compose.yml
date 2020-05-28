@@ -20,6 +20,8 @@ services:
       - ~/insurance-workspace:/root/insurance-workspace
       # Insurance and marvin codebases
       - ~/insurance/:/root/insurance
+      # HELIOSTATS REPO (Test)
+      - ~/Projects/heliostats:/root/heliostats
       # SSH agent to access VPN
       - ~/.ssh:/root/.ssh
       # Git permissions

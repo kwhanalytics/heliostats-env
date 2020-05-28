@@ -44,9 +44,6 @@ RUN apt-get update && apt-get install -y \
         apt-get clean && \
         rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
-    locale-gen en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
 
 # Copy requirement files
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt

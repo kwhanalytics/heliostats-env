@@ -1,11 +1,12 @@
 version: '3'
 services:
-  data_env:
-    image: kwhadocker/data-env:latest
+  heliostats_env:
+    image: kwhadocker/heliostats-env:latest
     environment:
       - USER
-      - POSTGRES_USER=root
-      - POSTGRES_PASS=kwh
+      - DJANGO_SETTINGS_MODULE=heliostats.settings.local
+      # - POSTGRES_USER=hannahkang
+      # - POSTGRES_PASS=kwh
     ports:
       # Jupyter default port
       - "8888:8888"

@@ -85,10 +85,15 @@ RUN python --version
 # the insurance requirements file will point to marvin file
 # This layer costs 1.28GB - not sure how to fix this issue.
 # explicitly install numpy first?
-RUN pip install numpy==1.11.0
 # note that some libraries are on older versions than data-env imagee
 RUN pip --no-cache-dir install -r buildreqs/marvin-requirements.txt
 RUN pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
+
+# so - heliostats-requirements.txt has numpy 1.17.__
+# and that, in conjunction with pandas 0.18, causes integration tests to break
+# for now, I'll manually have numpy to 1.11.0, but we should upgrade both pandas
+# and numpy now that we are on py3
+RUN pip install numpy==1.11.0
 
 # Do we need to / want to create an ENTRYPOINT HERE?
 

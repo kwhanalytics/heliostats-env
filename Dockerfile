@@ -97,6 +97,19 @@ RUN pip install numpy==1.11.0
 
 # Do we need to / want to create an ENTRYPOINT HERE?
 
+# Install npm and node
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+# confirm nvm installation
+RUN nvm --version
+# install node
+RUN nvm install node
+
+# confirm installation
+RUN node -v
+RUN npm -v
+# Install Javascript dependencies using Node Package Manager:
+RUN npm install
+RUN npm run build
 
 # Run bash on startup
 CMD ["/bin/bash"]

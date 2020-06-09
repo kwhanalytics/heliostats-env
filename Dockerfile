@@ -104,15 +104,13 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh
 ENV NVM_DIR /root/.nvm
 ENV NODE_VERSION 4.4.7
 
-RUN . $NVM_DIR/nvm.sh
-RUN nvm install $NODE_VERSION
-RUN nvm alias default $NODE_VERSION
-RUN nvm use default
+RUN . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
 
 # confirm nvm installation
 RUN nvm --version
-# install node
-RUN nvm install node
 
 # confirm installation
 RUN node -v

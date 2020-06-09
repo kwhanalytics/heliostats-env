@@ -119,7 +119,6 @@ RUN npm -v
 
 # Install Javascript dependencies using Node Package Manager:
 RUN npm install
-RUN npm run build
 
 # Run bash on startup
 CMD ["/bin/bash"]

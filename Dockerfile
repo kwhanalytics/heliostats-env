@@ -105,9 +105,9 @@ ENV NVM_DIR /root/nvm
 ENV NODE_VERSION 4.4.7
 
 RUN . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+RUN nvm install $NODE_VERSION \
+RUN nvm alias default $NODE_VERSION \
+RUN nvm use default
 
 # confirm nvm installation
 RUN nvm --version

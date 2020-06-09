@@ -48,6 +48,7 @@ RUN apt-get update && apt-get install -y \
 # Copy requirement files
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
 COPY heliostats-requirements.txt buildreqs/heliostats-requirements.txt
+COPY package.json ./package.json
 
 # Python 3 setup
 # KE TODO do we need this python3 setup or can we just install it
@@ -99,6 +100,10 @@ RUN pip install numpy==1.11.0
 
 # Install npm and node
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+# set up NVM_DIR and load nvm
+RUN export NVM_DIR="/root/.nvm"
+RUN [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # loads nvm
+
 # confirm nvm installation
 RUN nvm --version
 # install node
@@ -107,6 +112,7 @@ RUN nvm install node
 # confirm installation
 RUN node -v
 RUN npm -v
+
 # Install Javascript dependencies using Node Package Manager:
 RUN npm install
 RUN npm run build

@@ -109,9 +109,6 @@ RUN . $NVM_DIR/nvm.sh \
     && nvm alias default $NODE_VERSION \
     && nvm use default
 
-# confirm nvm installation
-RUN nvm --version
-
 # confirm installation
 RUN node -v
 RUN npm -v

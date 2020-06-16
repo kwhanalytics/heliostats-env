@@ -4,8 +4,8 @@
 [Dockerhub](https://hub.docker.com/repository/docker/kwhadocker/heliostats-env) builds a `heliostats-env` Docker image from the code in the `heliostats-env` Github repo. We use code in the separate [devops](https://bitbucket.org/kwh/devops/src/master/) repo to pull down Docker images and make local `heliostats_env` Docker containers from them. 
 
 ## Table of Contents
-1. Using the heliostats-env Docker image
-2. Updating the helisotats-env Docker image
+1. [Using the heliostats-env Docker image](#1-using-the-heliostats-env-docker-image)
+2. [Updating the helisotats-env Docker image](#2-updating-the-heliostats-env-docker-image)
 
 ## 1. Using the heliostats-env Docker image
 Please refer to the Confluence documentation on [Using Docker for HelioStats](https://kwhanalytics.atlassian.net/wiki/spaces/KTD/pages/1121255455/Using+Docker+for+HelioStats). (Documentation-ception)
@@ -20,10 +20,10 @@ Please refer to the Confluence documentation on [Using Docker for HelioStats](ht
 2) Push your branch to github, open a PR, and add reviewers.  
 3) Check DockerHub to ensure your new tag was built successfully. You can check https://hub.docker.com/repository/docker/kwhadocker/heliostats-env/builds to see the status of your build. If your build fails, check the logs and debug appropriately.
 
-## Test the new Docker image
+### Test the new Docker image
 **Note:** This section is a **work in progress**.We still need to set up docker on heliostats concourse tests and define the testing process for new docker images.
 
-## Merge Changes and Tell the Team
+### Merge Changes and Tell the Team
 **Note:** This section is a **work in progress**. We still need to set up docker on heliostats concourse tests and define the testing process for new docker images.  
 * Once testing is complete, get approval for your open PR's.
 * Merge the Github branch into `master`. This will trigger a new build on DockerHub for the `latest` tag which will be an identical copy of your newest tag.

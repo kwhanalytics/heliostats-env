@@ -1,4 +1,4 @@
-FROM kwhadocker/ubuntu18-postgres11:latest
+FROM kwhadocker/data-env:latest
 
 # Move to root
 WORKDIR /root/
@@ -45,8 +45,8 @@ RUN apt-get update && apt-get install -y \
         rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
 
-# Copy requirement files
-COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
+# Copy requirement files (marvin requirements will already have been installed
+#   in the data-env image which this inherits from)
 COPY heliostats-requirements.txt buildreqs/heliostats-requirements.txt
 COPY package.json ./package.json
 
@@ -87,7 +87,6 @@ RUN python --version
 # This layer costs 1.28GB - not sure how to fix this issue.
 # explicitly install numpy first?
 # note that some libraries are on older versions than data-env imagee
-RUN pip --no-cache-dir install -r buildreqs/marvin-requirements.txt
 RUN pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
 
 # so - heliostats-requirements.txt has numpy 1.17.__

@@ -116,9 +116,8 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
-# Install Javascript dependencies using Node Package Manager:
-WORKDIR /heliostats
-RUN npm install
+# Installing node dependencies should be done on container creation
+# It is not baked into this image.
 
 # Run bash on startup
 CMD ["/bin/bash"]   

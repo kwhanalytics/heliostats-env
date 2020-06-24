@@ -117,7 +117,8 @@ RUN node -v
 RUN npm -v
 
 # Install Javascript dependencies using Node Package Manager:
-RUN npm install --global
+WORKDIR /heliostats
+RUN npm install
 
 # Run bash on startup
 CMD ["/bin/bash"]   

@@ -44,7 +44,7 @@ RUN node -v
 RUN npm -v
 
 # Install Javascript dependencies using Node Package Manager:
-RUN npm install --global
+RUN npm install  #Local install here writes to /root/node_modules
 
 # Run bash on startup
 CMD ["/bin/bash"]

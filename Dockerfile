@@ -28,7 +28,8 @@ RUN pip install numpy==1.11.0
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 # set up NVM_DIR and load nvm
 ENV NVM_DIR /root/.nvm
-ENV NODE_VERSION 4.4.7
+# most recent LTS node version
+ENV NODE_VERSION 12.18.3
 
 RUN . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \

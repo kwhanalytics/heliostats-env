@@ -16,7 +16,7 @@
     "jquery": "3.4.1",
     "js-cookie": "2.2.0",
     "numbro": "2.1.1",
-    "papaparse": "4.6.3",
+    "papaparse": "5.3.0",
     "prop-types": "15.7.2",
     "react": "15.6.1",
     "react-bootstrap": "0.31.5",

@@ -8,6 +8,11 @@ WORKDIR /root/
 COPY heliostats-requirements.txt buildreqs/heliostats-requirements.txt
 COPY package.json ./package.json
 
+# Install apache2 (necessary for dev servers running heliostats)
+RUN apt-get update && apt-get install -y \
+    apache2 \
+    apache2-dev \
+
 # Install requirements
 # Will also run buildreqs/marvin/requirements.txt since
 # the insurance requirements file will point to marvin file

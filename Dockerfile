@@ -11,7 +11,9 @@ COPY package.json ./package.json
 # Install apache2 (necessary for dev servers running heliostats)
 RUN apt-get update && apt-get install -y \
     apache2 \
-    apache2-dev
+    apache2-dev \
+    libapache2-mod-xsendfile \
+    python-setuptools
 
 # Install requirements
 # Will also run buildreqs/marvin/requirements.txt since

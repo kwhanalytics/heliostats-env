@@ -13,8 +13,7 @@ RUN apt-get update && apt-get install -y \
     apache2 \
     apache2-dev \
     libapache2-mod-xsendfile \
-    python-setuptools \
-    mod_ssl
+    python-setuptools
 
 # Install requirements
 # Will also run buildreqs/marvin/requirements.txt since

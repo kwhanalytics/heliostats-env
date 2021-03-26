@@ -3,7 +3,7 @@ EasyProcess==0.2.2
 PyExecJS==1.1.0
 PyReact==0.6.0
 PyVirtualDisplay==0.2
-PyYAML==5.1.2
+PyYAML==5.4
 Werkzeug==0.15.3
 awsebcli==3.6.1
 blessed==1.9.5

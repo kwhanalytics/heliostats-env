@@ -16,7 +16,7 @@ coverage==4.4.1
 dj-static==0.0.6
 django-axes==4.5.4
 django-dajaxice==0.7
-django-debug-toolbar==1.8
+django-debug-toolbar==1.11.1
 django-extensions==1.9.0
 django-ipware==2.1.0
 django-nose==1.4.5

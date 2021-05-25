@@ -1,4 +1,4 @@
-FROM kwhadocker/data-env:v5
+FROM kwhadocker/data-env:v13-arm
 
 # Move to root
 WORKDIR /root/

@@ -1,4 +1,4 @@
-FROM kwhadocker/data-env:v13-arm
+FROM 657285219065.dkr.ecr.us-west-2.amazonaws.com/kwhadocker/data-env:v13-arm
 
 # Move to root
 WORKDIR /root/

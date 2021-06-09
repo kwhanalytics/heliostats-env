@@ -1,4 +1,4 @@
-FROM 657285219065.dkr.ecr.us-west-2.amazonaws.com/kwhadocker/data-env:v14-arm
+FROM 657285219065.dkr.ecr.us-west-2.amazonaws.com/kwhadocker/data-env:v14
 
 # Move to root
 WORKDIR /root/
@@ -25,9 +25,6 @@ RUN ln -f /usr/bin/python3.7  /usr/bin/python
 
 # update pip
 RUN python3.7 -m pip install pip==21.1.2
-
-# required for arm architecture
-RUN ln -f /usr/include/locale.h /usr/include/xlocale.h
 
 # Required to be installed first in order to build pandas
 RUN python3.7 -m pip install cython numpy==1.18.4

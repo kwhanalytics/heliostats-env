@@ -30,7 +30,7 @@ RUN python3.7 -m pip install pip==21.1.2
 RUN python3.7 -m pip install cython numpy==1.18.4
 
 # Install requirements
-RUN pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
+RUN python3.7 -m pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
 
 
 # Do we need to / want to create an ENTRYPOINT HERE?

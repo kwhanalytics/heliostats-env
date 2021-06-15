@@ -1,4 +1,4 @@
-FROM kwhadocker/data-env:v5
+FROM 657285219065.dkr.ecr.us-west-2.amazonaws.com/kwhadocker/data-env:v14
 
 # Move to root
 WORKDIR /root/
@@ -13,21 +13,25 @@ RUN apt-get update && apt-get install -y \
     apache2 \
     apache2-dev \
     libapache2-mod-xsendfile \
+    python3.7-dev \
     python-setuptools
 
-# Install requirements
-# Will also run buildreqs/marvin/requirements.txt since
-# the insurance requirements file will point to marvin file
-# This layer costs 1.28GB - not sure how to fix this issue.
-# explicitly install numpy first?
-# note that some libraries are on older versions than data-env imagee
-RUN pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
+# `python` is /usr/bin/python, a symlink. Overwrite old symlink with a new one.
+# New one will point to python3.7 so that's the version we'll get when running
+# `python`.
+# Note: This seems to work locally when connected to a docker container, but not
+# in the python commands run below, so they explicitly specify 'python3.7'.
+RUN ln -f /usr/bin/python3.7  /usr/bin/python
 
-# so - heliostats-requirements.txt has numpy 1.17.__
-# and that, in conjunction with pandas 0.18, causes integration tests to break
-# for now, I'll manually have numpy to 1.11.0, but we should upgrade both pandas
-# and numpy now that we are on py3
-RUN pip install numpy==1.11.0
+# update pip
+RUN python3.7 -m pip install pip==21.1.2
+
+# Required to be installed first in order to build pandas
+RUN python3.7 -m pip install cython numpy==1.18.4
+
+# Install requirements
+RUN python3.7 -m pip --no-cache-dir install -r buildreqs/heliostats-requirements.txt
+
 
 # Do we need to / want to create an ENTRYPOINT HERE?
 
